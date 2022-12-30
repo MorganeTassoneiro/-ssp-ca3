@@ -1,7 +1,13 @@
-/*!
-* Start Bootstrap - Bare v5.0.8 (https://startbootstrap.com/template/bare)
-* Copyright 2013-2022 Start Bootstrap
-* Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-bare/blob/master/LICENSE)
-*/
-// This file is intentionally blank
-// Use this file to add JavaScript to your project
+const   http = require('http'), //HTTP server
+        path = require('path'),
+        express = require('express'), //Handling HTTP requests & routing
+        fs = require('fs'), //File system functionalities
+        xmlParse = require('xslt-processor').xmlParse, //XML handling
+        xsltProcess = require('xslt-processor').xsltProcess, //XSLT handling
+        router = express(), //Init our router
+        xml2js = require('xml2js'),
+        server = http.createServer(router); //Init our server
+        
+        router.use(express.static(path.resolve(__dirname,'views')));
+        router.use(express.urlencoded({extended: true}));
+        router.use(express.json());
